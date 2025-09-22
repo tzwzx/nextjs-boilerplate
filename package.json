@@ -1,0 +1,59 @@
+{
+  "name": "nextjs-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "ultracite check",
+    "format": "ultracite fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "stylelint": "stylelint 'src/**/*.scss'",
+    "stylelint:fix": "stylelint 'src/**/*.scss' --fix",
+    "tsc": "tsgo --noEmit",
+    "fixpack": "fixpack",
+    "knip": "knip",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "check-all": "run-p -c lint prettier stylelint tsc knip fixpack test:unit",
+    "check-all:fix": "run-s -c format prettier:fix stylelint:fix tsc knip fixpack test:unit"
+  },
+  "dependencies": {
+    "next": "15.5.3",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.4",
+    "@playwright/test": "1.55.0",
+    "@testing-library/react": "16.3.0",
+    "@tsconfig/next": "2.0.3",
+    "@types/node": "24.5.2",
+    "@types/react": "19.1.13",
+    "@types/react-dom": "19.1.9",
+    "@typescript/native-preview": "7.0.0-dev.20250922.1",
+    "@vitejs/plugin-react": "5.0.3",
+    "babel-plugin-react-compiler": "19.1.0-rc.3",
+    "fixpack": "4.0.0",
+    "jsdom": "27.0.0",
+    "knip": "5.64.0",
+    "npm-run-all2": "8.0.4",
+    "prettier": "3.6.2",
+    "sass": "1.93.0",
+    "stylelint": "16.24.0",
+    "stylelint-config-recess-order": "7.3.0",
+    "stylelint-config-recommended-scss": "16.0.1",
+    "stylelint-prettier": "5.0.3",
+    "typescript": "5.9.2",
+    "ultracite": "5.4.5",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.2.4"
+  },
+  "engines": {
+    "node": "22.x",
+    "bun": "1.x"
+  }
+}

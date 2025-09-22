@@ -1,0 +1,11 @@
+*.js
+*.ts
+*.jsx
+*.tsx
+*.json
+*.jsonc
+*.graphql
+*.mjs
+*.mts
+*.scss
+*.css

@@ -1,0 +1,29 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+playwright-report
+test-results
+blob-report
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.serena/
+.DS_Store
+*.pem
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

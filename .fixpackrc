@@ -1,0 +1,14 @@
+{
+  "sortToTop": [
+    "name",
+    "type",
+    "version",
+    "private",
+    "scripts",
+    "dependencies",
+    "devDependencies",
+    "engines"
+  ],
+  "sortedSubItems": ["dependencies", "devDependencies"],
+  "quiet": true
+}
