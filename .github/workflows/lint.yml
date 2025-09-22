@@ -1,0 +1,29 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: ./.github/actions/setup-bun
+
+      - name: Run Biome
+        run: bun lint
+
+      - name: Run Prettier
+        run: bun prettier
+
+      - name: Run tsc
+        run: bun tsc
+
+      - name: Run Stylelint
+        run: bun stylelint
+
+      - name: knip
+        run: bun knip
