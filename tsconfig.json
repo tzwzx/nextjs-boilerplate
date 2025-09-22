@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
+    "target": "ES2017",
     "paths": {
       "@/*": ["./src/*"]
     }
