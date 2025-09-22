@@ -3,7 +3,7 @@ name: E2E Test
 on: [push]
 
 jobs:
-  lint:
+  e2e-test:
     runs-on: ubuntu-latest
 
     steps:
