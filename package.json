@@ -19,7 +19,8 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "check-all": "run-p -c lint prettier stylelint tsc knip fixpack test:unit",
-    "check-all:fix": "run-s -c format prettier:fix stylelint:fix tsc knip fixpack test:unit"
+    "check-all:fix": "run-s -c format prettier:fix stylelint:fix tsc knip fixpack test:unit",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "next": "15.5.3",
@@ -40,6 +41,7 @@
     "fixpack": "4.0.0",
     "jsdom": "27.0.0",
     "knip": "5.64.0",
+    "lefthook": "^1.13.2",
     "npm-run-all2": "8.0.4",
     "prettier": "3.6.2",
     "sass": "1.93.0",
