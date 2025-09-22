@@ -27,7 +27,7 @@ bun dev
 Generate optimized assets for production.
 
 ```bash
-bun build
+bun run build
 ```
 
 ### Start Production Server
