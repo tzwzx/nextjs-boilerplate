@@ -35,7 +35,7 @@
     "@types/node": "24.5.2",
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
-    "@typescript/native-preview": "7.0.0-dev.20250923.1",
+    "@typescript/native-preview": "7.0.0-dev.20250924.1",
     "@vitejs/plugin-react": "5.0.3",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "fixpack": "4.0.0",
