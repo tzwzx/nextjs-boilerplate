@@ -68,8 +68,15 @@ const runSequential = async (commands: readonly string[]): Promise<void> => {
         console.error(stderr);
       }
     } catch (error) {
+      const execError = error as Error & { stdout?: string; stderr?: string };
       console.error(`❌ Command failed: ${command}`);
-      errors.push({ command, error: error as Error });
+      if (execError.stdout) {
+        console.log(execError.stdout);
+      }
+      if (execError.stderr) {
+        console.error(execError.stderr);
+      }
+      errors.push({ command, error: execError });
     }
   }
 
@@ -168,13 +175,13 @@ const runFix = async (): Promise<void> => {
       try {
         await runSequential(FORMAT_COMMANDS);
       } catch (error) {
-        errors.push(`Step 1: ${(error as Error).message}`);
+        errors.push(`Sequential execution failed: ${(error as Error).message}`);
       }
 
       try {
         await runConcurrentlyOnly(PARALLEL_CHECK_COMMANDS);
       } catch (error) {
-        errors.push(`Step 2: ${(error as Error).message}`);
+        errors.push(`Parallel execution failed: ${(error as Error).message}`);
       }
 
       if (errors.length > 0) {
