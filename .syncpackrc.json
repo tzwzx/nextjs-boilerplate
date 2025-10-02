@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/syncpack/dist/schema.json",
+  "semverGroups": [
+    {
+      "label": "All dependencies must use exact versions",
+      "dependencies": ["**"],
+      "dependencyTypes": ["prod", "dev"],
+      "range": ""
+    }
+  ],
+  "sortPackages": true,
+  "sortFirst": [
+    "name",
+    "type",
+    "version",
+    "private",
+    "scripts",
+    "dependencies",
+    "devDependencies",
+    "engines"
+  ],
+  "sortAz": ["dependencies", "devDependencies"]
+}

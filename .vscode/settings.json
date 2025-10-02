@@ -16,5 +16,13 @@
   "stylelint.configFile": "stylelint.config.mjs",
   "emmet.showExpandedAbbreviation": "never",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["Knip", "tsgo", "turbopack", "uaplus", "ultracite", "Vitest"]
+  "cSpell.words": [
+    "Knip",
+    "syncpack",
+    "tsgo",
+    "turbopack",
+    "uaplus",
+    "ultracite",
+    "Vitest"
+  ]
 }

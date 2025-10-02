@@ -25,5 +25,11 @@ jobs:
       - name: Run Stylelint
         run: bun stylelint
 
-      - name: knip
+      - name: Run package-format
+        run: bun package-format
+
+      - name: Run package-lint-semver-ranges
+        run: bun package-lint-semver-ranges
+
+      - name: Run knip
         run: bun knip

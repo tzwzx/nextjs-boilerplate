@@ -94,12 +94,20 @@ Run `tsgo --noEmit` to validate TypeScript types.
 bun tsc
 ```
 
-### Tidy package.json
+### Format package.json
 
-Clean up and normalize `package.json` with Fixpack.
+Format and normalize `package.json` with Syncpack.
 
 ```bash
-bun fixpack
+bun package-format
+```
+
+### Lint Semver Ranges
+
+Validate semver ranges in `package.json` with Syncpack.
+
+```bash
+bun package-lint-semver-ranges
 ```
 
 ### Detect Unused Code
@@ -136,7 +144,7 @@ bun test:e2e:ui
 
 ### Quality Gate
 
-Run linting, formatting checks, Stylelint, type checks, Knip, Fixpack, and unit tests together.
+Run linting, formatting checks, Stylelint, type checks, Knip, package format validation, and unit tests together.
 
 ```bash
 bun check-all
@@ -144,7 +152,7 @@ bun check-all
 
 ### Quality Gate (Auto Fix)
 
-Apply automatic fixes, then run type checks, Knip, Fixpack, and unit tests.
+Apply automatic fixes, then run type checks, Knip, package format validation, and unit tests.
 
 ```bash
 bun check-all:fix
