@@ -19,8 +19,8 @@
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "check-all": "run-p -c lint prettier stylelint tsc knip package-format package-lint-semver-ranges test:unit",
-    "check-all:fix": "run-s -c format prettier:fix stylelint:fix tsc knip package-format package-lint-semver-ranges test:unit",
+    "check-all": "bun scripts/check-all.ts",
+    "check-all:fix": "bun scripts/check-all.ts fix",
     "postinstall": "lefthook install"
   },
   "dependencies": {
@@ -39,10 +39,10 @@
     "@typescript/native-preview": "7.0.0-dev.20251001.1",
     "@vitejs/plugin-react": "5.0.4",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
+    "concurrently": "9.2.1",
     "jsdom": "27.0.0",
     "knip": "5.64.1",
     "lefthook": "1.13.6",
-    "npm-run-all2": "8.0.4",
     "prettier": "3.6.2",
     "sass": "1.93.2",
     "stylelint": "16.24.0",
