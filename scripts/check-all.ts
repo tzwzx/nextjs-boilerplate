@@ -53,34 +53,53 @@ const PARALLEL_CHECK_COMMANDS = [
 // ============================================================================
 
 /**
- * Execute commands sequentially (one after another)
+ * Execute commands sequentially, continuing even if some fail
  */
 const runSequential = async (commands: readonly string[]): Promise<void> => {
+  const errors: Array<{ command: string; error: Error }> = [];
+
   for (const command of commands) {
-    console.log(`🔧 Running: ${command}`);
-    const { stdout, stderr } = await execPromise(command);
-    if (stdout) {
-      console.log(stdout);
+    try {
+      const { stdout, stderr } = await execPromise(command);
+      if (stdout) {
+        console.log(stdout);
+      }
+      if (stderr) {
+        console.error(stderr);
+      }
+    } catch (error) {
+      console.error(`❌ Command failed: ${command}`);
+      errors.push({ command, error: error as Error });
     }
-    if (stderr) {
-      console.error(stderr);
-    }
+  }
+
+  if (errors.length > 0) {
+    const errorMessages = errors
+      .map((e) => `${e.command}: ${e.error.message}`)
+      .join("\n");
+    throw new Error(`Sequential commands failed:\n${errorMessages}`);
   }
 };
 
 /**
- * Execute commands in parallel (without process.exit)
+ * Execute commands in parallel, continuing even if some fail
  */
 const runConcurrentlyOnly = async (
   commands: ReadonlyArray<{ readonly command: string }>
 ): Promise<void> => {
-  const options = {
+  const { result } = concurrently([...commands], {
     group: true,
     prefix: "none",
-  } as const;
+    killOthers: [] as never[],
+  });
 
-  const { result } = concurrently([...commands], options);
-  await result;
+  try {
+    await result;
+  } catch (error) {
+    const failures =
+      (error as { message?: string })?.message || "Unknown error";
+    throw new Error(`Some commands failed: ${failures}`);
+  }
 };
 
 /**
@@ -139,18 +158,28 @@ const runCheck = async (): Promise<void> => {
 };
 
 /**
- * Fix mode: Auto-fix formatting, then validate (sequential → parallel)
+ * Fix mode: Auto-fix formatting, then run validation checks
  */
 const runFix = async (): Promise<void> => {
   await runWithTimer(
     async () => {
-      console.log(
-        "📝 Step 1: Running format and prettier:fix sequentially...\n"
-      );
-      await runSequential(FORMAT_COMMANDS);
+      const errors: string[] = [];
 
-      console.log("\n⚡ Step 2: Running remaining checks concurrently...\n");
-      await runConcurrentlyOnly(PARALLEL_CHECK_COMMANDS);
+      try {
+        await runSequential(FORMAT_COMMANDS);
+      } catch (error) {
+        errors.push(`Step 1: ${(error as Error).message}`);
+      }
+
+      try {
+        await runConcurrentlyOnly(PARALLEL_CHECK_COMMANDS);
+      } catch (error) {
+        errors.push(`Step 2: ${(error as Error).message}`);
+      }
+
+      if (errors.length > 0) {
+        throw new Error(errors.join("\n\n"));
+      }
     },
     "All fixes and checks completed",
     "Fixes or checks failed"
