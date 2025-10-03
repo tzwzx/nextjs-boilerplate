@@ -97,7 +97,7 @@ const runConcurrentlyOnly = async (
   const { result } = concurrently([...commands], {
     group: true,
     prefix: "none",
-    killOthers: [] as never[],
+    killOthersOn: [] as never[],
   });
 
   try {
