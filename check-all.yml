@@ -1,0 +1,33 @@
+# Check All - Command Configuration
+#
+# Customize project-specific check commands in this file
+#
+# Execution Matrix:
+# ┌──────────────────────────────────────┬───────────────┬──────────────┐
+# │ Command Group                        │ Check Mode    │ Fix Mode     │
+# ├──────────────────────────────────────┼───────────────┼──────────────┤
+# │ parallel_check_commands              │ ✅ Executed   │ ⏭️  Skipped  │
+# │ sequential_format_commands           │ ⏭️  Skipped   │ ✅ Executed  │
+# │ parallel_common_check_commands       │ ✅ Executed   │ ✅ Executed  │
+# └──────────────────────────────────────┴───────────────┴──────────────┘
+#
+# Check Mode:  parallel_check_commands + parallel_common_check_commands
+# Fix Mode:    sequential_format_commands + parallel_common_check_commands
+
+# Check mode only - Read-only validation (run in parallel)
+parallel_check_commands:
+  - bun lint
+  - bun prettier
+
+# Fix mode only - Auto-fix commands (run sequentially)
+sequential_format_commands:
+  - bun format
+  - bun prettier:fix
+
+# Both modes - Common checks (run in parallel)
+parallel_common_check_commands:
+  - bun package-format
+  - bun package-lint-semver-ranges
+  - bun tsc
+  - bun knip
+  - bun test:unit

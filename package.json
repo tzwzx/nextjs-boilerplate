@@ -53,7 +53,8 @@
     "typescript": "5.9.3",
     "ultracite": "5.4.6",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.2.4"
+    "vitest": "3.2.4",
+    "yaml": "2.8.1"
   },
   "engines": {
     "node": "22.x",

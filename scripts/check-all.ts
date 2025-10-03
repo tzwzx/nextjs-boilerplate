@@ -7,50 +7,38 @@
  */
 
 import { exec } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 import { performance } from "node:perf_hooks";
 import process from "node:process";
+import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import concurrently from "concurrently";
+import { parse } from "yaml";
 
 const execPromise = promisify(exec);
 
-// ============================================================================
-// CONFIGURATION: Command Definitions
-// ============================================================================
-// 💡 Modify only this section to customize checks for your project
-//
-// Execution Matrix:
-// ┌─────────────────────────────┬───────────────┬──────────────┐
-// │ Command Group               │ Check Mode    │ Fix Mode     │
-// ├─────────────────────────────┼───────────────┼──────────────┤
-// │ CHECK_COMMANDS              │ ✅ Executed   │ ⏭️  Skipped  │
-// │ FORMAT_COMMANDS             │ ⏭️  Skipped   │ ✅ Executed  │
-// │ PARALLEL_CHECK_COMMANDS     │ ✅ Executed   │ ✅ Executed  │
-// └─────────────────────────────┴───────────────┴──────────────┘
-//
-// Check Mode:  CHECK_COMMANDS + PARALLEL_CHECK_COMMANDS
-// Fix Mode:    FORMAT_COMMANDS + PARALLEL_CHECK_COMMANDS
-// ----------------------------------------------------------------------------
+// Load configuration from YAML file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const configPath = join(__dirname, "..", "check-all.yml");
+const configYaml = readFileSync(configPath, "utf-8");
 
-// Check mode only - Read-only validation
-const CHECK_COMMANDS = [
-  { command: "bun lint" },
-  { command: "bun prettier" },
-] as const;
+type Config = {
+  parallel_check_commands: string[];
+  sequential_format_commands: string[];
+  parallel_common_check_commands: string[];
+};
 
-// Fix mode only - Auto-fix commands (run sequentially)
-const FORMAT_COMMANDS = ["bun format", "bun prettier:fix"] as const;
+const config = parse(configYaml) as Config;
 
-// Both modes - Heavy checks (run in parallel)
-const PARALLEL_CHECK_COMMANDS = [
-  { command: "bun package-format" },
-  { command: "bun package-lint-semver-ranges" },
-  { command: "bun tsc" },
-  { command: "bun knip" },
-  { command: "bun test:unit" },
-] as const;
-
-// ============================================================================
+// Convert YAML configuration to internal format
+const PARALLEL_CHECK_COMMANDS = config.parallel_check_commands.map(
+  (command) => ({ command })
+);
+const SEQUENTIAL_FORMAT_COMMANDS = config.sequential_format_commands;
+const PARALLEL_COMMON_CHECK_COMMANDS =
+  config.parallel_common_check_commands.map((command) => ({ command }));
 
 /**
  * Execute commands sequentially, continuing even if some fail
@@ -159,7 +147,10 @@ const runConcurrently = async (
  * Check mode: Run all validation commands in parallel (read-only)
  */
 const runCheck = async (): Promise<void> => {
-  const commands = [...CHECK_COMMANDS, ...PARALLEL_CHECK_COMMANDS];
+  const commands = [
+    ...PARALLEL_CHECK_COMMANDS,
+    ...PARALLEL_COMMON_CHECK_COMMANDS,
+  ];
 
   await runConcurrently(commands, "All checks completed", "Checks failed");
 };
@@ -173,13 +164,13 @@ const runFix = async (): Promise<void> => {
       const errors: string[] = [];
 
       try {
-        await runSequential(FORMAT_COMMANDS);
+        await runSequential(SEQUENTIAL_FORMAT_COMMANDS);
       } catch (error) {
         errors.push(`Sequential execution failed: ${(error as Error).message}`);
       }
 
       try {
-        await runConcurrentlyOnly(PARALLEL_CHECK_COMMANDS);
+        await runConcurrentlyOnly(PARALLEL_COMMON_CHECK_COMMANDS);
       } catch (error) {
         errors.push(`Parallel execution failed: ${(error as Error).message}`);
       }
