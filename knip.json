@@ -1,5 +1,4 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "entry": ["happydom.ts", "tests/**/*.test.{ts,tsx}"],
-  "ignoreDependencies": ["@biomejs/biome"]
+  "entry": ["happydom.ts", "tests/**/*.test.{ts,tsx}"]
 }
