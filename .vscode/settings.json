@@ -17,7 +17,9 @@
   "emmet.showExpandedAbbreviation": "never",
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
+    "happydom",
     "Knip",
+    "registrator",
     "syncpack",
     "tsgo",
     "turbopack",

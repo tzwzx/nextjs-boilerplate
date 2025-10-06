@@ -1,9 +1,9 @@
+import { describe, expect, test } from "bun:test";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
 import Home from "@/app/page";
 
 describe("Home page", () => {
-  it("renders the hero heading", () => {
+  test("renders the hero heading", () => {
     const expectedTitle = "Hello World";
     const headingLevel = 1;
 
