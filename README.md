@@ -120,7 +120,7 @@ bun knip
 
 ### Run Unit Tests
 
-Execute the Vitest unit test suite.
+Execute the Bun unit test suite.
 
 ```bash
 bun test:unit
