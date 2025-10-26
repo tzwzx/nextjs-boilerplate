@@ -1,9 +1,9 @@
-name: 'Setups Bun'
+name: "Setups Bun"
 
-description: 'Setups Bun'
+description: "Setups Bun"
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Setup Bun
       uses: oven-sh/setup-bun@v2
