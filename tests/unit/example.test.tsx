@@ -4,7 +4,7 @@ import Home from "@/app/page";
 
 describe("Home page", () => {
   test("renders the hero heading", () => {
-    const expectedTitle = "Hello World";
+    const expectedTitle = "Next.js Boilerplate";
     const headingLevel = 1;
 
     render(<Home />);
