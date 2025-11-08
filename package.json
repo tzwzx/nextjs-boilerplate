@@ -37,10 +37,10 @@
     "@types/node": "24.10.0",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "@typescript/native-preview": "7.0.0-dev.20251105.1",
+    "@typescript/native-preview": "7.0.0-dev.20251107.1",
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "9.2.1",
-    "knip": "5.67.1",
+    "knip": "5.68.0",
     "lefthook": "2.0.2",
     "prettier": "3.6.2",
     "sass": "1.93.3",
@@ -50,7 +50,7 @@
     "stylelint-prettier": "5.0.3",
     "syncpack": "13.0.4",
     "typescript": "5.9.3",
-    "ultracite": "6.3.0",
+    "ultracite": "6.3.2",
     "yaml": "2.8.1"
   },
   "engines": {
