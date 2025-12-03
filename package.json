@@ -24,7 +24,7 @@
     "postinstall": "lefthook install"
   },
   "dependencies": {
-    "next": "16.0.5",
+    "next": "16.0.6",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
@@ -37,12 +37,12 @@
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "@typescript/native-preview": "7.0.0-dev.20251129.1",
+    "@typescript/native-preview": "7.0.0-dev.20251202.1",
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "9.2.1",
-    "knip": "5.70.2",
-    "lefthook": "2.0.4",
-    "prettier": "3.7.3",
+    "knip": "5.71.0",
+    "lefthook": "2.0.5",
+    "prettier": "3.7.4",
     "sass": "1.94.2",
     "stylelint": "16.26.1",
     "stylelint-config-recess-order": "7.4.0",
@@ -51,7 +51,7 @@
     "syncpack": "13.0.4",
     "typescript": "5.9.3",
     "ultracite": "6.3.8",
-    "yaml": "2.8.1"
+    "yaml": "2.8.2"
   },
   "engines": {
     "node": "24.x",
