@@ -24,11 +24,11 @@ const __dirname = dirname(__filename);
 const configPath = join(__dirname, "..", "check-all.yml");
 const configYaml = readFileSync(configPath, "utf-8");
 
-type Config = {
+interface Config {
   parallel_check_commands: string[];
   sequential_format_commands: string[];
   parallel_common_check_commands: string[];
-};
+}
 
 const config = parse(configYaml) as Config;
 
