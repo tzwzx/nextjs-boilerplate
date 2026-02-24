@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ES2022",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -15,7 +15,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
     "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"]
