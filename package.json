@@ -21,6 +21,7 @@
     "test:e2e:ui": "playwright test --ui",
     "check-all": "bun scripts/check-all.ts",
     "check-all:fix": "bun scripts/check-all.ts fix",
+    "react-doctor": "bunx -y react-doctor@latest . --no-ami",
     "postinstall": "lefthook install"
   },
   "dependencies": {
