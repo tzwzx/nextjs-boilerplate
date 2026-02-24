@@ -6,6 +6,7 @@
  *   bun check-all:fix      # Fix mode (auto-fix then check)
  */
 
+/* oxlint-disable import/no-nodejs-modules */
 import { exec } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -22,7 +23,7 @@ const execPromise = promisify(exec);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const configPath = join(__dirname, "..", "check-all.yml");
-const configYaml = readFileSync(configPath, "utf-8");
+const configYaml = readFileSync(configPath, "utf8");
 
 interface Config {
   parallel_check_commands: string[];
@@ -40,31 +41,47 @@ const SEQUENTIAL_FORMAT_COMMANDS = config.sequential_format_commands;
 const PARALLEL_COMMON_CHECK_COMMANDS =
   config.parallel_common_check_commands.map((command) => ({ command }));
 
+const logExecOutput = (stdout?: string, stderr?: string): void => {
+  if (stdout) {
+    console.log(stdout);
+  }
+  if (stderr) {
+    console.error(stderr);
+  }
+};
+
+const formatDuration = (startTime: number): string => {
+  const MILLISECONDS_PER_SECOND = 1000;
+  return (
+    (performance.now() - startTime) / MILLISECONDS_PER_SECOND
+  ).toFixed(2);
+};
+
+const executeCommand = async (
+  command: string
+): Promise<{ command: string; error: Error } | null> => {
+  try {
+    const { stdout, stderr } = await execPromise(command);
+    logExecOutput(stdout, stderr);
+    return null;
+  } catch (error) {
+    const execError = error as Error & { stdout?: string; stderr?: string };
+    console.error(`❌ Command failed: ${command}`);
+    logExecOutput(execError.stdout, execError.stderr);
+    return { command, error: execError };
+  }
+};
+
 /**
  * Execute commands sequentially, continuing even if some fail
  */
 const runSequential = async (commands: readonly string[]): Promise<void> => {
-  const errors: Array<{ command: string; error: Error }> = [];
+  const errors: { command: string; error: Error }[] = [];
 
   for (const command of commands) {
-    try {
-      const { stdout, stderr } = await execPromise(command);
-      if (stdout) {
-        console.log(stdout);
-      }
-      if (stderr) {
-        console.error(stderr);
-      }
-    } catch (error) {
-      const execError = error as Error & { stdout?: string; stderr?: string };
-      console.error(`❌ Command failed: ${command}`);
-      if (execError.stdout) {
-        console.log(execError.stdout);
-      }
-      if (execError.stderr) {
-        console.error(execError.stderr);
-      }
-      errors.push({ command, error: execError });
+    const result = await executeCommand(command);
+    if (result) {
+      errors.push(result);
     }
   }
 
@@ -80,12 +97,12 @@ const runSequential = async (commands: readonly string[]): Promise<void> => {
  * Execute commands in parallel, continuing even if some fail
  */
 const runConcurrentlyOnly = async (
-  commands: ReadonlyArray<{ readonly command: string }>
+  commands: readonly { readonly command: string }[]
 ): Promise<void> => {
   const { result } = concurrently([...commands], {
     group: true,
-    prefix: "none",
     killOthersOn: [] as never[],
+    prefix: "none",
   });
 
   try {
@@ -93,7 +110,7 @@ const runConcurrentlyOnly = async (
   } catch (error) {
     const failures =
       (error as { message?: string })?.message || "Unknown error";
-    throw new Error(`Some commands failed: ${failures}`);
+    throw new Error(`Some commands failed: ${failures}`, { cause: error });
   }
 };
 
@@ -106,21 +123,14 @@ const runWithTimer = async (
   failureMessage: string
 ): Promise<void> => {
   const startTime = performance.now();
-  const MILLISECONDS_PER_SECOND = 1000;
 
   try {
     await fn();
-    const endTime = performance.now();
-    const duration = ((endTime - startTime) / MILLISECONDS_PER_SECOND).toFixed(
-      2
-    );
+    const duration = formatDuration(startTime);
     console.log(`✅ ${successMessage} (execution time: ${duration}s)\n`);
     process.exit(0);
   } catch {
-    const endTime = performance.now();
-    const duration = ((endTime - startTime) / MILLISECONDS_PER_SECOND).toFixed(
-      2
-    );
+    const duration = formatDuration(startTime);
     console.error(`❌ ${failureMessage} (execution time: ${duration}s)`);
     process.exit(1);
   }
@@ -130,7 +140,7 @@ const runWithTimer = async (
  * Execute commands in parallel with timing and exit handling
  */
 const runConcurrently = async (
-  commands: ReadonlyArray<{ readonly command: string }>,
+  commands: readonly { readonly command: string }[],
   successMessage: string,
   failureMessage: string
 ): Promise<void> => {
@@ -191,11 +201,8 @@ const run = async (): Promise<void> => {
   const args = process.argv.slice(2);
   const isFix = args.includes("fix");
 
-  if (isFix) {
-    await runFix();
-  } else {
-    await runCheck();
-  }
+  await (isFix ? runFix() : runCheck());
 };
 
+// oxlint-disable-next-line jest/require-hook
 run();

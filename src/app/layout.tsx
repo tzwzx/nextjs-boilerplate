@@ -4,8 +4,8 @@ import "./reset.scss";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  title: "",
   description: "",
+  title: "",
 };
 
 export default function RootLayout({

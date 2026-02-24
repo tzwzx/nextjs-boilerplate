@@ -1,5 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
+/* oxlint-disable sort-keys */
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,

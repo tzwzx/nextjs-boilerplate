@@ -1,13 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  compress: true,
   outputFileTracingRoot: import.meta.dirname,
+  poweredByHeader: false,
   reactCompiler: true,
   typescript: {
     ignoreBuildErrors: false,
   },
-  poweredByHeader: false,
-  compress: true,
 
   // Next.js 16: Image optimization settings
   // Uncomment this configuration when using next/image component

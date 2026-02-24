@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
-    "format": "biome check --write",
+    "lint": "oxfmt --check . && oxlint .",
+    "format": "oxfmt --write . && oxlint --fix .",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "stylelint": "stylelint 'src/**/*.scss'",
@@ -29,7 +29,6 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.4",
     "@happy-dom/global-registrator": "20.7.0",
     "@playwright/test": "1.58.2",
     "@testing-library/react": "16.3.2",
@@ -42,6 +41,8 @@
     "concurrently": "9.2.1",
     "knip": "5.85.0",
     "lefthook": "2.1.1",
+    "oxfmt": "0.35.0",
+    "oxlint": "1.50.0",
     "prettier": "3.8.1",
     "sass": "1.97.3",
     "stylelint": "17.3.0",
