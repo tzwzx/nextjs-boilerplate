@@ -26,8 +26,8 @@ const configYaml = readFileSync(configPath, "utf-8");
 
 interface Config {
   parallel_check_commands: string[];
-  sequential_format_commands: string[];
   parallel_common_check_commands: string[];
+  sequential_format_commands: string[];
 }
 
 const config = parse(configYaml) as Config;

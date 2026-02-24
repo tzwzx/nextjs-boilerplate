@@ -1,4 +1,4 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "entry": ["happydom.ts", "tests/**/*.test.{ts,tsx}"]
+  "entry": ["tests/**/*.test.{ts,tsx}"]
 }
