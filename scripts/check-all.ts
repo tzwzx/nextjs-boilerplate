@@ -14,6 +14,7 @@ import { performance } from "node:perf_hooks";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
+
 import concurrently from "concurrently";
 import { parse } from "yaml";
 
@@ -52,9 +53,7 @@ const logExecOutput = (stdout?: string, stderr?: string): void => {
 
 const formatDuration = (startTime: number): string => {
   const MILLISECONDS_PER_SECOND = 1000;
-  return (
-    (performance.now() - startTime) / MILLISECONDS_PER_SECOND
-  ).toFixed(2);
+  return ((performance.now() - startTime) / MILLISECONDS_PER_SECOND).toFixed(2);
 };
 
 const executeCommand = async (

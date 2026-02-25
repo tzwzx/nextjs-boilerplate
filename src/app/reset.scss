@@ -48,7 +48,7 @@
  *
  * Long paragraphs are easier to read if the line height is higher.
  */
- /* stylelint-disable-next-line no-duplicate-selectors */
+/* stylelint-disable-next-line no-duplicate-selectors */
 :where(html) {
   line-height: 1.5;
 }
@@ -59,7 +59,7 @@
  * Prevent the page from “jumping” when switching from a long to a short page.
  *
  */
- /* stylelint-disable-next-line no-duplicate-selectors */
+/* stylelint-disable-next-line no-duplicate-selectors */
 :where(html) {
   scrollbar-gutter: stable;
 }
@@ -135,34 +135,34 @@
   height: 1px;
   overflow: hidden;
   white-space: nowrap;
-  content: 'test';
+  content: "test";
   /* stylelint-disable-next-line property-no-deprecated */
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(100%);
 }
 
 :where(s)::before {
-  content: 'stricken text start ';
+  content: "stricken text start ";
 }
 
 :where(s)::after {
-  content: ' stricken text end';
+  content: " stricken text end";
 }
 
 :where(del)::before {
-  content: 'deletion start ';
+  content: "deletion start ";
 }
 
 :where(del)::after {
-  content: ' deletion end';
+  content: " deletion end";
 }
 
 :where(ins)::before {
-  content: 'insertion start ';
+  content: "insertion start ";
 }
 
 :where(ins)::after {
-  content: ' insertion end';
+  content: " insertion end";
 }
 
 /**
@@ -225,13 +225,13 @@
  * Remove the rounded corners of search inputs on macOS and IOS
  * and normalize the background color
  */
-:where([type='search']) {
+:where([type="search"]) {
   -webkit-appearance: textfield;
 }
 
 /* iOS only */
 @supports (-webkit-touch-callout: none) {
-  :where([type='search']) {
+  :where([type="search"]) {
     background-color: canvas;
     border: 1px solid -apple-system-secondary-label;
   }
@@ -246,7 +246,7 @@
  *
  * See https://rtlstyling.com/posts/rtl-styling#form-inputs
  */
-:where([type='tel'], [type='url'], [type='email'], [type='number']):not(
+:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(
   :placeholder-shown
 ) {
   direction: ltr;
@@ -306,6 +306,6 @@
  * [hidden] attribute while still maintaining the until-found
  * functionality.
  */
-[hidden]:not([hidden='until-found']) {
+[hidden]:not([hidden="until-found"]) {
   display: none !important;
 }

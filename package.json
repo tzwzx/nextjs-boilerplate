@@ -8,8 +8,6 @@
     "start": "next start",
     "lint": "oxfmt --check . && oxlint .",
     "format": "oxfmt --write . && oxlint --fix .",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
     "stylelint": "stylelint 'src/**/*.scss'",
     "stylelint:fix": "stylelint 'src/**/*.scss' --fix",
     "tsc": "tsgo --noEmit",
@@ -44,19 +42,17 @@
     "lefthook": "2.1.1",
     "oxfmt": "0.35.0",
     "oxlint": "1.50.0",
-    "prettier": "3.8.1",
     "sass": "1.97.3",
     "stylelint": "17.3.0",
     "stylelint-config-recess-order": "7.6.1",
     "stylelint-config-recommended-scss": "17.0.0",
-    "stylelint-prettier": "5.0.3",
     "syncpack": "14.0.0",
     "typescript": "5.9.3",
     "ultracite": "7.2.3",
     "yaml": "2.8.2"
   },
   "engines": {
-    "node": "24.x",
-    "bun": "1.x"
+    "bun": "1.x",
+    "node": "24.x"
   }
 }

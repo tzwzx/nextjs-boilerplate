@@ -54,22 +54,6 @@ Apply automatic fixes provided by Ultracite.
 bun format
 ```
 
-### Check Formatting
-
-Verify formatting with Prettier.
-
-```bash
-bun prettier
-```
-
-### Fix Formatting
-
-Rewrite files with Prettier formatting.
-
-```bash
-bun prettier:fix
-```
-
 ### Run Stylelint
 
 Check SCSS files with Stylelint.

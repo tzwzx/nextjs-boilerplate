@@ -16,9 +16,6 @@ jobs:
       - name: Run Oxlint and Oxfmt
         run: bun lint
 
-      - name: Run Prettier
-        run: bun prettier
-
       - name: Run tsc
         run: bun tsc
 

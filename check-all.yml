@@ -17,13 +17,11 @@
 # Check mode only - Read-only validation (run in parallel)
 parallel_check_commands:
   - bun lint
-  - bun prettier
   - bun stylelint
 
 # Fix mode only - Auto-fix commands (run sequentially)
 sequential_format_commands:
   - bun format
-  - bun prettier:fix
   - bun stylelint:fix
 
 # Both modes - Common checks (run in parallel)
