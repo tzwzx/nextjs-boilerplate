@@ -16,6 +16,7 @@
   "overrides": [
     {
       "files": ["tests/e2e/**/*.spec.ts"],
+      "plugins": ["vitest"],
       "rules": {
         "vitest/consistent-test-filename": "off"
       }
