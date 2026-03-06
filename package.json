@@ -11,7 +11,6 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "stylelint:fix": "stylelint 'src/**/*.scss' --fix",
     "tsc": "tsgo --noEmit",
-    "package-format": "syncpack format",
     "package-lint-semver-ranges": "syncpack lint",
     "knip": "knip",
     "test:unit": "bun test tests/unit",

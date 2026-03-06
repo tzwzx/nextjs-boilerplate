@@ -26,7 +26,6 @@ sequential_format_commands:
 
 # Both modes - Common checks (run in parallel)
 parallel_common_check_commands:
-  - bun package-format
   - bun package-lint-semver-ranges
   - bun tsc
   - bun knip

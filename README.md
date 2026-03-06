@@ -78,14 +78,6 @@ Run `tsgo --noEmit` to validate TypeScript types.
 bun tsc
 ```
 
-### Format package.json
-
-Format and normalize `package.json` with Syncpack.
-
-```bash
-bun package-format
-```
-
 ### Lint Semver Ranges
 
 Validate semver ranges in `package.json` with Syncpack.
