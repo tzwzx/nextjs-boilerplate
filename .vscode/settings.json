@@ -17,15 +17,16 @@
   "emmet.showExpandedAbbreviation": "never",
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
+    "claudecode",
     "happydom",
     "Knip",
     "oxfmt",
     "oxlint",
     "oxlintrc",
     "registrator",
+    "rulesync",
     "syncpack",
     "tsgo",
-    "turbopack",
     "uaplus",
     "ultracite"
   ]

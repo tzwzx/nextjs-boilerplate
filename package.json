@@ -20,7 +20,8 @@
     "check-all": "bun scripts/check-all.ts",
     "check-all:fix": "bun scripts/check-all.ts fix",
     "react-doctor": "bunx -y react-doctor@latest .",
-    "postinstall": "lefthook install"
+    "rulesync": "bunx rulesync generate",
+    "postinstall": "lefthook install && bun rulesync"
   },
   "dependencies": {
     "next": "16.1.6",

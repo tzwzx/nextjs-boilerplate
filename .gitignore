@@ -29,3 +29,11 @@ reports
 *.tsbuildinfo
 next-env.d.ts
 
+# Rulesync
+CLAUDE.md
+CLAUDE.local.md
+.claude/*
+!.claude/settings.local.json
+.cursor/
+.rulesync/rules/*.local.md
+rulesync.local.jsonc

@@ -16,7 +16,7 @@ Run each script with `bun <script>`.
 
 ### Start Dev Server
 
-Launch the Next.js development server with Turbopack.
+Launch the Next.js development server.
 
 ```bash
 bun dev
@@ -132,4 +132,20 @@ Apply automatic fixes, then run type checks, Knip, package format validation, an
 
 ```bash
 bun check-all:fix
+```
+
+### Run React Doctor
+
+Diagnose project health with React Doctor.
+
+```bash
+bun react-doctor
+```
+
+### Generate Rulesync
+
+Generate rule files with Rulesync.
+
+```bash
+bun rulesync
 ```
