@@ -1,5 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "entry": ["tests/**/*.test.{ts,tsx}"],
-  "ignoreDependencies": ["ultracite"]
+  "entry": ["tests/**/*.test.{ts,tsx}", "oxfmt.config.ts"],
+  "ignoreDependencies": ["bun-types", "ultracite"]
 }

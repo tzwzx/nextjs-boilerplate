@@ -19,6 +19,7 @@
     "noUncheckedIndexedAccess": true,
     "noUncheckedSideEffectImports": true,
     "plugins": [{ "name": "next" }],
+    "types": ["bun-types"],
     "paths": {
       "@/*": ["./src/*"]
     }
