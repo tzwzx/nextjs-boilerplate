@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  description: "A generic Next.js boilerplate with modern defaults.",
   title: "Home",
 };
 
