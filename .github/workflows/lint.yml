@@ -22,8 +22,8 @@ jobs:
       - name: Run Stylelint
         run: bun stylelint
 
-      - name: Run package-lint-semver-ranges
-        run: bun package-lint-semver-ranges
+      - name: Run syncpack:lint
+        run: bun syncpack:lint
 
       - name: Run knip
         run: bun knip
