@@ -18,6 +18,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "claudecode",
+    "codesweep",
     "happydom",
     "Knip",
     "oxfmt",

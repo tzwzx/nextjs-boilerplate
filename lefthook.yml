@@ -1,4 +1,4 @@
 pre-commit:
   commands:
-    check-all:
-      run: bun check-all
+    codesweep:
+      run: bun codesweep:check

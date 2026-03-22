@@ -1,0 +1,18 @@
+check:
+  - parallel:
+      - bun lint
+      - bun stylelint
+      - bun package-lint-semver-ranges
+      - bun tsc
+      - bun knip
+      - bun test:unit
+
+fix:
+  - sequential:
+      - bun format
+      - bun stylelint:fix
+  - parallel:
+      - bun package-lint-semver-ranges
+      - bun tsc
+      - bun knip
+      - bun test:unit
