@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "target": "ES2025",
+    "lib": ["dom", "esnext"],
     "jsx": "react-jsx",
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -14,14 +18,14 @@
     "types": ["bun-types"],
     "allowJs": true,
     "noEmit": true,
-    "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   "include": [
     "next-env.d.ts",
