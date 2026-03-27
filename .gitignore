@@ -18,7 +18,6 @@ reports
 /build
 
 # misc
-.serena/
 .DS_Store
 *.pem
 
