@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: import.meta.dirname,
   poweredByHeader: false,
   reactCompiler: true,
-  typescript: {
-    ignoreBuildErrors: false,
-  },
 
   // Next.js 16: Image optimization settings
   // Uncomment this configuration when using next/image component
