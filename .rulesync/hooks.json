@@ -6,6 +6,11 @@
         "matcher": "Edit|Write",
         "command": ".rulesync/hooks/format.sh"
       }
+    ],
+    "stop": [
+      {
+        "command": ".rulesync/hooks/codesweep.sh"
+      }
     ]
   }
 }
