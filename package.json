@@ -18,8 +18,8 @@
     "test:unit": "bun test tests/unit",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "codesweep:check": "bunx codesweep check",
-    "codesweep:fix": "bunx codesweep fix",
+    "codesweep:check": "codesweep check",
+    "codesweep:fix": "codesweep fix",
     "react-doctor": "bunx -y react-doctor@latest .",
     "rulesync": "bunx rulesync generate",
     "postinstall": "lefthook install && bun rulesync"
