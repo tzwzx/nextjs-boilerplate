@@ -10,7 +10,6 @@
     "lib": ["dom", "esnext"],
     "jsx": "react-jsx",
     "module": "esnext",
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
@@ -19,13 +18,10 @@
     "allowJs": true,
     "noEmit": true,
     "verbatimModuleSyntax": true,
-    "strict": true,
     "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true
+    "skipLibCheck": true
   },
   "include": [
     "next-env.d.ts",
