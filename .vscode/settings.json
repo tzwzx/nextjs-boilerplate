@@ -3,11 +3,7 @@
   "editor.formatOnPaste": true,
   "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
-  "[javascript][typescript][javascriptreact][typescriptreact][json][jsonc][graphql]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "source.fixAll.oxc": "explicit"
   },
   "[scss][css]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"

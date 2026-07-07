@@ -5,13 +5,4 @@ import react from "ultracite/oxlint/react";
 
 export default defineConfig({
   extends: [core, react, next],
-  overrides: [
-    {
-      files: ["tests/e2e/**/*.spec.ts"],
-      plugins: ["vitest"],
-      rules: {
-        "vitest/consistent-test-filename": "off",
-      },
-    },
-  ],
 });

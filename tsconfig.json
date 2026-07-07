@@ -1,26 +1,29 @@
 {
   "compilerOptions": {
     "incremental": true,
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["bun-types"],
+    "resolveJsonModule": true,
+    "allowJs": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "target": "ES2025",
-    "lib": ["dom", "esnext"],
-    "jsx": "react-jsx",
-    "module": "esnext",
-    "resolveJsonModule": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "types": ["bun-types"],
-    "allowJs": true,
     "noEmit": true,
     "verbatimModuleSyntax": true,
-    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
     "skipLibCheck": true
   },
   "include": [
@@ -30,5 +33,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }
