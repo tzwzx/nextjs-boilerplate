@@ -15,6 +15,7 @@
     "syncpack:lint": "syncpack lint",
     "syncpack:fix": "syncpack fix",
     "fallow": "fallow",
+    "fallow:fix": "fallow fix --yes",
     "test:unit": "bun test tests/unit",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",

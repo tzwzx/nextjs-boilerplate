@@ -94,6 +94,14 @@ Use Fallow to find unused code, duplication, and complexity hotspots.
 bun fallow
 ```
 
+### Fix Unused Code
+
+Auto-remove unused exports, dependencies, and enum members with Fallow.
+
+```bash
+bun fallow:fix
+```
+
 ### Run Unit Tests
 
 Execute the Bun unit test suite.
@@ -128,7 +136,7 @@ bun codesweep:check
 
 ### Quality Gate (Auto Fix)
 
-Apply automatic fixes, then run type checks, Fallow, package format validation, and unit tests.
+Apply automatic fixes (including Fallow), then run type checks, Fallow, package format validation, and unit tests.
 
 ```bash
 bun codesweep:fix
