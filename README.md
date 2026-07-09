@@ -86,12 +86,12 @@ Validate semver ranges in `package.json` with Syncpack.
 bun syncpack:lint
 ```
 
-### Detect Unused Code
+### Analyze Codebase Health
 
-Use Knip to find unused files, exports, and dependencies.
+Use Fallow to find unused code, duplication, and complexity hotspots.
 
 ```bash
-bun knip
+bun fallow
 ```
 
 ### Run Unit Tests
@@ -120,7 +120,7 @@ bun test:e2e:ui
 
 ### Quality Gate
 
-Run linting, formatting checks, Stylelint, type checks, Knip, package format validation, and unit tests together.
+Run linting, formatting checks, Stylelint, type checks, Fallow, package format validation, and unit tests together.
 
 ```bash
 bun codesweep:check
@@ -128,7 +128,7 @@ bun codesweep:check
 
 ### Quality Gate (Auto Fix)
 
-Apply automatic fixes, then run type checks, Knip, package format validation, and unit tests.
+Apply automatic fixes, then run type checks, Fallow, package format validation, and unit tests.
 
 ```bash
 bun codesweep:fix

@@ -4,7 +4,7 @@ check:
       - bun stylelint
       - bun syncpack:lint
       - bun tsc
-      - bun knip
+      - bun fallow
       - bun test:unit
 
 fix:
@@ -14,5 +14,5 @@ fix:
   - parallel:
       - bun syncpack:fix
       - bun tsc
-      - bun knip
+      - bun fallow
       - bun test:unit

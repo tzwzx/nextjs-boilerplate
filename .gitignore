@@ -36,3 +36,4 @@ CLAUDE.local.md
 .cursor/
 .rulesync/rules/*.local.md
 rulesync.local.jsonc
+.fallow/

@@ -25,5 +25,5 @@ jobs:
       - name: Run syncpack:lint
         run: bun syncpack:lint
 
-      - name: Run knip
-        run: bun knip
+      - name: Run fallow
+        run: bun fallow
