@@ -72,7 +72,7 @@ bun stylelint:fix
 
 ### Type Check
 
-Run `tsgo --noEmit` to validate TypeScript types.
+Run `tsc --noEmit` to validate TypeScript types.
 
 ```bash
 bun tsc

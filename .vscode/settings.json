@@ -1,17 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.defaultFormatter": "oxc.oxc-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit"
-  },
-  "[scss][css]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
-  },
-  "stylelint.validate": ["scss", "css"],
-  "stylelint.configFile": "stylelint.config.mjs",
-  "emmet.showExpandedAbbreviation": "never",
-  "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "claudecode",
     "codesweep",
@@ -19,11 +6,9 @@
     "fallow",
     "oxfmt",
     "oxlint",
-    "oxlintrc",
     "registrator",
     "rulesync",
     "syncpack",
-    "tsgo",
     "uaplus",
     "ultracite"
   ]
