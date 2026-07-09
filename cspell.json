@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "files": ["**"],
+  "useGitignore": true,
+  "words": [
+    "claudecode",
+    "codesweep",
+    "happydom",
+    "oxlint",
+    "registrator",
+    "rulesync",
+    "syncpack",
+    "uaplus",
+    "ultracite"
+  ]
+}
