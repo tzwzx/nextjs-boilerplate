@@ -11,7 +11,6 @@ fix:
   - sequential:
       - bun format
       - bun stylelint:fix
-      - bun fallow:fix
   - parallel:
       - bun syncpack:fix
       - bun tsc
