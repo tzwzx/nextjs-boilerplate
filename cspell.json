@@ -4,14 +4,15 @@
   "files": ["**"],
   "useGitignore": true,
   "words": [
+    "bunx",
     "claudecode",
     "codesweep",
     "happydom",
-    "oxfmt",
     "oxlint",
     "registrator",
     "rulesync",
     "syncpack",
+    "tzwzx",
     "uaplus",
     "ultracite"
   ]
