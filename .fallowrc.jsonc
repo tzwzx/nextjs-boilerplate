@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json",
+  "ignorePatterns": ["**/*.d.ts"],
+  "duplicates": {
+    "minOccurrences": 3,
+  },
+  "health": {
+    "maxCyclomatic": 20,
+    "maxCognitive": 15,
+  },
+  "rules": {
+    "unused-dependencies": "error",
+    "unused-dev-dependencies": "error",
+  },
+}
