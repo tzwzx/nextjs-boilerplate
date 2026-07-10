@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-bunx oxfmt --write . >/dev/null 2>&1
+bunx oxfmt >/dev/null 2>&1

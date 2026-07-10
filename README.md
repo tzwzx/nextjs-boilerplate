@@ -51,7 +51,7 @@ bun lint
 Apply automatic fixes provided by Ultracite.
 
 ```bash
-bun format
+bun fix
 ```
 
 ### Run Stylelint

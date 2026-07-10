@@ -9,7 +9,7 @@ check:
 
 fix:
   - sequential:
-      - bun format
+      - bun fix
       - bun stylelint:fix
   - parallel:
       - bun syncpack:fix
