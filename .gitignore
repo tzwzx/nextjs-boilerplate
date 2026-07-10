@@ -7,15 +7,11 @@
 /coverage
 playwright-report
 test-results
-blob-report
 reports
 
 # next.js
 /.next/
 /out/
-
-# production
-/build
 
 # misc
 .DS_Store
