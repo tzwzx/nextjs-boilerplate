@@ -3,7 +3,7 @@ check:
       - bun lint
       - bun stylelint
       - bun syncpack:lint
-      - bun tsc
+      - bun typecheck
       - bun spellcheck
       - bun spellcheck:unused
       - bun fallow
@@ -15,7 +15,7 @@ fix:
       - bun stylelint:fix
   - parallel:
       - bun syncpack:fix
-      - bun tsc
+      - bun typecheck
       - bun spellcheck
       - bun spellcheck:unused
       - bun fallow

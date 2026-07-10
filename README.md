@@ -75,7 +75,7 @@ bun stylelint:fix
 Run `tsc --noEmit` to validate TypeScript types.
 
 ```bash
-bun tsc
+bun typecheck
 ```
 
 ### Lint Semver Ranges

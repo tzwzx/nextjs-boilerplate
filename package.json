@@ -11,7 +11,7 @@
     "fix": "oxfmt && oxlint --fix",
     "stylelint": "stylelint 'src/**/*.scss'",
     "stylelint:fix": "stylelint 'src/**/*.scss' --fix",
-    "tsc": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "spellcheck": "cspell",
     "spellcheck:unused": "cspell-check-unused-words",
     "syncpack:lint": "syncpack lint",

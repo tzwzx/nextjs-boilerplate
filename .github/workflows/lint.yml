@@ -16,8 +16,8 @@ jobs:
       - name: Run Oxlint and Oxfmt
         run: bun lint
 
-      - name: Run tsc
-        run: bun tsc
+      - name: Run typecheck
+        run: bun typecheck
 
       - name: Run Stylelint
         run: bun stylelint
