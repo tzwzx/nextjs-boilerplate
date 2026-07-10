@@ -128,7 +128,7 @@ bun test:e2e:ui
 
 ### Quality Gate
 
-Run linting, formatting checks, Stylelint, type checks, Fallow, package format validation, and unit tests together.
+Run linting, formatting checks, Stylelint, type checks, spell checks, Fallow, package format validation, and unit tests together.
 
 ```bash
 bun codesweep:check
@@ -136,7 +136,7 @@ bun codesweep:check
 
 ### Quality Gate (Auto Fix)
 
-Apply automatic fixes (including Fallow), then run type checks, Fallow, package format validation, and unit tests.
+Apply automatic fixes (including Fallow), then run type checks, spell checks, Fallow, package format validation, and unit tests.
 
 ```bash
 bun codesweep:fix

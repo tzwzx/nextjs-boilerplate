@@ -28,5 +28,8 @@ jobs:
       - name: Run fallow
         run: bun fallow
 
+      - name: Run spellcheck
+        run: bun spellcheck
+
       - name: Check unused cspell words
-        run: bunx -y cspell-check-unused-words
+        run: bun spellcheck:unused
