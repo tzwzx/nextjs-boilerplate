@@ -9,7 +9,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["bun-types"],
+    "types": ["bun"],
     "resolveJsonModule": true,
     "allowJs": true,
     "plugins": [
@@ -19,12 +19,12 @@
     ],
     "noEmit": true,
     "verbatimModuleSyntax": true,
-    "esModuleInterop": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   "include": [
     "next-env.d.ts",
