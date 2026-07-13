@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const port = process.env.PORT ?? "3000";
+const baseURL = `http://localhost:${port}`;
+
 /* oxlint-disable sort-keys */
 export default defineConfig({
   testDir: "./tests/e2e",
@@ -14,7 +17,7 @@ export default defineConfig({
     ...(process.env.CI ? [["github"] as const] : []),
   ],
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL,
     trace: "on-first-retry",
   },
   projects: [
@@ -27,7 +30,7 @@ export default defineConfig({
   ],
   webServer: {
     command: process.env.CI ? "bun run build && bun start" : "bun dev",
-    url: "http://localhost:3000",
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
   },
 });
