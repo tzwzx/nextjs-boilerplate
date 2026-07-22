@@ -4,8 +4,6 @@
     "target": "esnext",
     "lib": ["dom", "esnext"],
     "jsx": "react-jsx",
-    "module": "esnext",
-    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -19,12 +17,10 @@
     ],
     "noEmit": true,
     "verbatimModuleSyntax": true,
-    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true
+    "skipLibCheck": true
   },
   "include": [
     "next-env.d.ts",
@@ -33,6 +29,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
-  "exclude": ["node_modules"]
+  ]
 }
