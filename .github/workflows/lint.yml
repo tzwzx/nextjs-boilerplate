@@ -27,3 +27,6 @@ jobs:
 
       - name: Run fallow
         run: bun fallow
+
+      - name: Run cspell-check-unused-words
+        run: bunx cspell-check-unused-words

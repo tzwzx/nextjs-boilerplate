@@ -1,6 +1,11 @@
 {
   "version": 1,
   "hooks": {
+    "sessionStart": [
+      {
+        "command": "bunx agent-session-gate session-start"
+      }
+    ],
     "postToolUse": [
       {
         "matcher": "Edit|Write",
@@ -9,7 +14,7 @@
     ],
     "stop": [
       {
-        "command": ".rulesync/hooks/codesweep.sh"
+        "command": "bunx agent-session-gate stop -- bun codesweep:fix --quiet"
       }
     ]
   }
