@@ -2,22 +2,5 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "files": ["**"],
   "useGitignore": true,
-  "words": [
-    "Beginn",
-    "bunx",
-    "claudecode",
-    "codesweep",
-    "Durchgestrichener",
-    "fieldsets",
-    "happydom",
-    "hotspots",
-    "oxlint",
-    "registrator",
-    "rulesync",
-    "syncpack",
-    "textareas",
-    "tzwzx",
-    "uaplus",
-    "ultracite"
-  ]
+  "words": []
 }

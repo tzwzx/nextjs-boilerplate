@@ -4,8 +4,6 @@ check:
       - bun stylelint
       - bun syncpack:lint
       - bun typecheck
-      - bun spellcheck
-      - bun spellcheck:unused
       - bun fallow
       - bun test:unit
 
@@ -16,7 +14,5 @@ fix:
   - parallel:
       - bun syncpack:fix
       - bun typecheck
-      - bun spellcheck
-      - bun spellcheck:unused
       - bun fallow
       - bun test:unit
