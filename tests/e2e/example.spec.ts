@@ -7,7 +7,7 @@ test.describe("Home page", () => {
       page.getByRole("heading", {
         level: 1,
         name: "Next.js Boilerplate",
-      }),
+      })
     ).toBeVisible();
   });
 });

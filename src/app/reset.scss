@@ -246,7 +246,9 @@
  *
  * See https://rtlstyling.com/posts/rtl-styling#form-inputs
  */
-:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(:placeholder-shown) {
+:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(
+  :placeholder-shown
+) {
   direction: ltr;
 }
 
