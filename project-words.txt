@@ -1,6 +1,7 @@
 bunx
 claudecode
 codesweep
+fallow
 happydom
 oxlint
 registrator
