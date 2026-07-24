@@ -1,0 +1,11 @@
+bunx
+claudecode
+codesweep
+happydom
+oxlint
+registrator
+rulesync
+syncpack
+tzwzx
+uaplus
+ultracite
