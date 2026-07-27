@@ -5,13 +5,7 @@ on: [push]
 jobs:
   unit-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Bun
-        uses: ./.github/actions/setup-bun
-
-      - name: Run Unit Tests
-        run: bun test:unit
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-bun
+      - run: bun test:unit

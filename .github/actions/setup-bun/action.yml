@@ -5,11 +5,8 @@ description: "Setups Bun"
 runs:
   using: "composite"
   steps:
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v2
+    - uses: oven-sh/setup-bun@v2
       with:
         bun-version: latest
-
-    - name: Install dependencies
-      run: bun install --frozen-lockfile
+    - run: bun install --frozen-lockfile
       shell: bash

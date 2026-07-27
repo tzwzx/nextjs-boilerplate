@@ -5,28 +5,12 @@ on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Bun
-        uses: ./.github/actions/setup-bun
-
-      - name: Run Oxlint and Oxfmt
-        run: bun lint
-
-      - name: Run typecheck
-        run: bun typecheck
-
-      - name: Run Stylelint
-        run: bun stylelint
-
-      - name: Run syncpack:lint
-        run: bun syncpack:lint
-
-      - name: Run fallow
-        run: bun fallow
-
-      - name: Run cspell-check-unused-words
-        run: bunx cspell-check-unused-words
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-bun
+      - run: bun lint
+      - run: bun typecheck
+      - run: bun stylelint
+      - run: bun syncpack:lint
+      - run: bun fallow
+      - run: bunx cspell-check-unused-words

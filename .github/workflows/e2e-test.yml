@@ -5,20 +5,11 @@ on: [push]
 jobs:
   e2e-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Bun
-        uses: ./.github/actions/setup-bun
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
-
-      - name: Run Playwright tests
-        run: bun test:e2e
-
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-bun
+      - run: npx playwright install --with-deps chromium
+      - run: bun test:e2e
       - uses: actions/upload-artifact@v7
         if: always()
         with:

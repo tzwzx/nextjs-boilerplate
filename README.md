@@ -99,7 +99,7 @@ bun fallow
 Auto-remove unused exports, dependencies, and enum members with Fallow.
 
 ```bash
-bun fallow:fix
+bun fallow fix --yes
 ```
 
 ### Run Unit Tests
