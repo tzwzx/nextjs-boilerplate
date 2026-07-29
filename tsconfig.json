@@ -16,18 +16,22 @@
       }
     ],
     "noEmit": true,
+    "strict": true,
     "verbatimModuleSyntax": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler"
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ]
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
 }
