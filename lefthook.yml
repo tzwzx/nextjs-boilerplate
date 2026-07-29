@@ -1,4 +1,11 @@
 pre-commit:
+  # Run both checks concurrently: react-doctor alone takes ~1.8s, but it
+  # finishes within codesweep's runtime, so the measured overhead is ~+0.1s
+  parallel: true
   commands:
     codesweep:
       run: bun codesweep:check
+    react-doctor:
+      # Staged files only, to cover what oxlint's react-doctor plugin misses.
+      # The score API and Socket.dev lookups are disabled to keep the hook fast
+      run: bun react-doctor:staged

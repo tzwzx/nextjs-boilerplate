@@ -20,6 +20,7 @@
     "codesweep:check": "codesweep check",
     "codesweep:fix": "codesweep fix",
     "react-doctor": "bunx -y react-doctor@latest .",
+    "react-doctor:staged": "bunx -y react-doctor@latest --yes --staged --no-score --no-supply-chain .",
     "rulesync": "bunx rulesync generate",
     "postinstall": "lefthook install && bun rulesync"
   },
