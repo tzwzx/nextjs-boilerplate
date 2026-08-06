@@ -20,16 +20,12 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="ja">
-      <body>
-        <main>{children}</main>
-      </body>
-    </html>
-  );
-}
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+  <html lang="ja">
+    <body>
+      <main>{children}</main>
+    </body>
+  </html>
+);
+
+export default RootLayout;

@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/react";
 
+import "../../happydom";
 import Home from "@/app/page";
 
 describe("Home page", () => {
