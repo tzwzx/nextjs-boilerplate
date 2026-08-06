@@ -25,32 +25,32 @@
     "postinstall": "lefthook install && bun rulesync"
   },
   "dependencies": {
-    "next": "16.2.12",
+    "next": "16.3.0",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "20.11.1",
-    "@playwright/test": "1.62.0",
+    "@playwright/test": "1.62.1",
     "@testing-library/react": "16.3.2",
     "@types/bun": "1.3.14",
     "@types/node": "26.1.2",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
     "@tzwzx/codesweep": "1.2.2",
     "agent-session-gate": "github:tzwzx/agent-session-gate",
     "babel-plugin-react-compiler": "1.0.0",
-    "fallow": "3.10.0",
+    "fallow": "3.14.0",
     "lefthook": "2.1.10",
-    "oxfmt": "0.61.0",
-    "oxlint": "1.76.0",
+    "oxfmt": "0.62.0",
+    "oxlint": "1.77.0",
     "sass": "1.102.0",
     "stylelint": "17.14.1",
     "stylelint-config-recess-order": "7.7.0",
     "stylelint-config-recommended-scss": "17.0.1",
     "syncpack": "15.3.2",
-    "typescript": "6.0.3",
-    "ultracite": "7.9.4"
+    "typescript": "7.0.2",
+    "ultracite": "7.10.1"
   },
   "engines": {
     "bun": "1.x",

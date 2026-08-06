@@ -2,15 +2,15 @@
 
 import { useEffect } from "react";
 
-export default function ErrorPage({
+const ErrorPage = ({
   error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+}) => {
   useEffect(() => {
-    // Log the error to an error reporting service
+    // エラーをレポートサービスへ記録する
     console.error(error);
   }, [error]);
 
@@ -23,4 +23,6 @@ export default function ErrorPage({
       </button>
     </>
   );
-}
+};
+
+export default ErrorPage;
