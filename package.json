@@ -37,7 +37,7 @@
     "@types/node": "26.2.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
-    "@tzwzx/codesweep": "1.2.2",
+    "@tzwzx/codesweep": "1.2.3",
     "agent-session-gate": "github:tzwzx/agent-session-gate",
     "babel-plugin-react-compiler": "1.0.0",
     "fallow": "3.14.0",
@@ -48,9 +48,9 @@
     "stylelint": "17.14.1",
     "stylelint-config-recess-order": "7.7.0",
     "stylelint-config-recommended-scss": "17.0.1",
-    "syncpack": "15.3.2",
+    "syncpack": "15.3.3",
     "typescript": "7.0.2",
-    "ultracite": "7.10.1"
+    "ultracite": "7.10.2"
   },
   "engines": {
     "bun": "1.x",
