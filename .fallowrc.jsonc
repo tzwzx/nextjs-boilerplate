@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json",
+  "$schema": "./node_modules/fallow/schema.json",
   "entry": ["oxfmt.config.ts"],
   "ignorePatterns": ["**/*.d.ts"],
   "ignoreDependencies": ["agent-session-gate"],
