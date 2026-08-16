@@ -25,11 +25,13 @@ reports
 next-env.d.ts
 
 # Rulesync
-CLAUDE.md
 CLAUDE.local.md
 .claude/*
+!.claude/rules/
 !.claude/settings.local.json
-.cursor/
+.cursor/*
+!.cursor/rules/
+!.cursor/hooks.json
 .rulesync/rules/*.local.md
 rulesync.local.jsonc
 .fallow/

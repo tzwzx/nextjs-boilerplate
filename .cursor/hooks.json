@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "bunx agent-session-gate session-start"
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": ".rulesync/hooks/format.sh",
+        "matcher": "Edit|Write"
+      }
+    ],
+    "stop": [
+      {
+        "command": "bunx agent-session-gate stop -- bun codesweep:fix --quiet"
+      }
+    ]
+  }
+}
