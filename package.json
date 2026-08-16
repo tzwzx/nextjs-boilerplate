@@ -22,6 +22,7 @@
     "react-doctor": "bunx -y react-doctor@latest .",
     "react-doctor:staged": "bunx -y react-doctor@latest --yes --staged --no-score --no-supply-chain .",
     "rulesync": "bunx rulesync generate",
+    "rulesync:check": "bunx rulesync doctor --strict && bunx rulesync generate --check",
     "postinstall": "lefthook install && bun rulesync"
   },
   "dependencies": {
