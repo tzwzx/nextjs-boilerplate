@@ -26,9 +26,7 @@ next-env.d.ts
 
 # Rulesync
 CLAUDE.local.md
-.claude/*
-!.claude/rules/
-!.claude/settings.local.json
+.claude/
 .cursor/*
 !.cursor/rules/
 !.cursor/hooks.json

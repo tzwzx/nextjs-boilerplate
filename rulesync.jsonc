@@ -2,8 +2,6 @@
   "$schema": "https://github.com/dyoshikawa/rulesync/releases/latest/download/config-schema.json",
   "targets": {
     "cursor": ["rules", "hooks"],
-    "claudecode": ["rules", "hooks"],
-    "agentsmd": { "rules": { "ruleDiscoveryMode": "none" } },
   },
   "delete": true,
 }
