@@ -3,7 +3,6 @@ claudecode
 codesweep
 fallow
 happydom
-oxlint
 registrator
 rulesync
 syncpack

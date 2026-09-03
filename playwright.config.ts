@@ -3,7 +3,6 @@ import { defineConfig, devices } from "@playwright/test";
 const port = process.env.PORT ?? "3000";
 const baseURL = `http://localhost:${port}`;
 
-/* oxlint-disable sort-keys */
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,

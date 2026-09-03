@@ -1,6 +1,6 @@
 # Next.js Boilerplate
 
-Opinionated starter for Next.js 15 with React 19, TypeScript, SCSS, and an Ultracite-driven lint pipeline.
+Opinionated starter for Next.js 15 with React 19, TypeScript, SCSS, and oxfmt for formatting.
 
 ## Install Dependencies
 
@@ -40,7 +40,7 @@ bun start
 
 ### Run Lint Checks
 
-Execute Ultracite static analysis.
+Check formatting with oxfmt.
 
 ```bash
 bun lint
@@ -48,7 +48,7 @@ bun lint
 
 ### Apply Lint Fixes
 
-Apply automatic fixes provided by Ultracite.
+Apply oxfmt.
 
 ```bash
 bun fix
@@ -140,14 +140,6 @@ Apply automatic fixes (including Fallow), then run type checks, spell checks, Fa
 
 ```bash
 bun codesweep:fix
-```
-
-### Run React Doctor
-
-Diagnose project health with React Doctor.
-
-```bash
-bun react-doctor
 ```
 
 ### Generate Rulesync
