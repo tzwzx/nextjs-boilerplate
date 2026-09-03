@@ -24,12 +24,9 @@ reports
 *.tsbuildinfo
 next-env.d.ts
 
-# Rulesync
-CLAUDE.local.md
-.claude/
 .cursor/*
 !.cursor/rules/
 !.cursor/hooks.json
-.rulesync/rules/*.local.md
-rulesync.local.jsonc
+!.cursor/hooks/
+!.cursor/hooks/**
 .fallow/

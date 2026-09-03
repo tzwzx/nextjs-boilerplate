@@ -8,7 +8,7 @@
     ],
     "postToolUse": [
       {
-        "command": ".rulesync/hooks/format.sh",
+        "command": ".cursor/hooks/format.sh",
         "matcher": "Edit|Write"
       }
     ],

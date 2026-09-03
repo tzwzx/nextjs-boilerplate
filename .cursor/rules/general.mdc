@@ -1,6 +1,7 @@
-# Additional Conventions Beyond the Built-in Functions
-
-As this project's AI coding tool, you must follow the additional conventions below, in addition to the built-in functions.
+---
+alwaysApply: true
+description: Project-specific rules
+---
 
 # General Rules
 

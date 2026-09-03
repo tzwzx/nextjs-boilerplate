@@ -19,9 +19,7 @@
     "test:e2e:ui": "playwright test --ui",
     "codesweep:check": "codesweep check",
     "codesweep:fix": "codesweep fix",
-    "rulesync": "bunx rulesync generate",
-    "rulesync:check": "bunx rulesync doctor --strict && bunx rulesync generate --check",
-    "postinstall": "lefthook install && bun rulesync"
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "next": "16.3.3",

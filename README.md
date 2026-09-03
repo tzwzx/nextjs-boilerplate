@@ -141,11 +141,3 @@ Apply automatic fixes (including Fallow), then run type checks, spell checks, Fa
 ```bash
 bun codesweep:fix
 ```
-
-### Generate Rulesync
-
-Generate rule files with Rulesync.
-
-```bash
-bun rulesync
-```
