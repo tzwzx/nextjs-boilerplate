@@ -2,13 +2,7 @@
 
 import { useEffect } from "react";
 
-const ErrorPage = ({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) => {
+const ErrorPage = ({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) => {
   useEffect(() => {
     // エラーをレポートサービスへ記録する
     console.error(error);

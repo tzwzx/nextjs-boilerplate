@@ -1,11 +1,6 @@
 "use client";
 
-const GlobalError = ({
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) => (
+const GlobalError = ({ reset }: { error: Error & { digest?: string }; reset: () => void }) => (
   <html lang="ja">
     <body>
       <main>

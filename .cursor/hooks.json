@@ -3,18 +3,17 @@
   "hooks": {
     "sessionStart": [
       {
-        "command": "bunx agent-session-gate session-start"
+        "command": "./node_modules/.bin/cursor-agent-hooks session-start"
       }
     ],
-    "postToolUse": [
+    "afterFileEdit": [
       {
-        "command": ".cursor/hooks/format.sh",
-        "matcher": "Edit|Write"
+        "command": "./node_modules/.bin/cursor-agent-hooks after-edit -- ./node_modules/.bin/oxfmt --threads=1"
       }
     ],
     "stop": [
       {
-        "command": "bunx agent-session-gate stop -- bun codesweep:fix --quiet"
+        "command": "./node_modules/.bin/cursor-agent-hooks stop -- bun codesweep:fix --quiet"
       }
     ]
   }

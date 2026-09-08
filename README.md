@@ -1,6 +1,6 @@
 # Next.js Boilerplate
 
-Opinionated starter for Next.js 15 with React 19, TypeScript, SCSS, and oxfmt for formatting.
+Opinionated starter for Next.js 15 with React 19, TypeScript, SCSS, oxfmt for formatting, and oxlint for linting.
 
 ## Install Dependencies
 
@@ -40,7 +40,7 @@ bun start
 
 ### Run Lint Checks
 
-Check formatting with oxfmt.
+Check formatting with oxfmt and run oxlint.
 
 ```bash
 bun lint
@@ -48,7 +48,7 @@ bun lint
 
 ### Apply Lint Fixes
 
-Apply oxfmt.
+Apply oxfmt and oxlint --fix.
 
 ```bash
 bun fix

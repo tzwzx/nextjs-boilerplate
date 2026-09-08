@@ -12,8 +12,6 @@ describe("Home page", () => {
 
     render(<Home />);
 
-    expect(
-      screen.getByRole("heading", { level: headingLevel, name: expectedTitle })
-    ).toBeDefined();
+    expect(screen.getByRole("heading", { level: headingLevel, name: expectedTitle })).toBeDefined();
   });
 });
