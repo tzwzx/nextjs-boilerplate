@@ -1,9 +1,0 @@
-bunx
-codesweep
-fallow
-happydom
-registrator
-syncpack
-tzwzx
-uaplus
-ultracite

@@ -13,4 +13,3 @@ jobs:
       - run: bun stylelint
       - run: bun syncpack:lint
       - run: bun fallow
-      - run: bunx cspell-check-unused-words
