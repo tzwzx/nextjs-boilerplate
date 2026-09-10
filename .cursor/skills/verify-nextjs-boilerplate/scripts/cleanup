@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Tear down the verification instance and browser session this run started.
+# Proof artifacts under test-results/verify/evidence/ are kept.
+
+set -euo pipefail
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# shellcheck disable=SC1091
+source "${SCRIPT_DIR}/common.sh"
+
+if [[ -f ${INSTANCE_FILE} ]]; then
+  # shellcheck disable=SC1090
+  source "${INSTANCE_FILE}"
+  if [[ -n ${VERIFY_PID:-} ]]; then
+    echo "cleanup: stopping pid tree ${VERIFY_PID}"
+    kill_tree "${VERIFY_PID}"
+    wait "${VERIFY_PID}" 2>/dev/null || true
+    for _ in 1 2 3 4 5; do
+      if pid_alive "${VERIFY_PID}"; then
+        sleep 0.2
+      else
+        break
+      fi
+    done
+    if pid_alive "${VERIFY_PID}"; then
+      echo "cleanup: pid ${VERIFY_PID} still alive, sending SIGKILL to its tree" >&2
+      kill_tree_kill() {
+        local pid=$1
+        local child
+        for child in $(pgrep -P "${pid}" 2>/dev/null || true); do
+          kill_tree_kill "${child}"
+        done
+        kill -9 "${pid}" 2>/dev/null || true
+      }
+      kill_tree_kill "${VERIFY_PID}"
+    fi
+  fi
+else
+  echo "cleanup: no instance file; nothing to stop"
+fi
+
+if command -v agent-browser >/dev/null 2>&1; then
+  session=$(browser_session)
+  echo "cleanup: closing agent-browser session ${session}"
+  agent-browser --session "${session}" close >/dev/null 2>&1 || true
+fi
+
+rm -rf "${RUN_DIR}"
+echo "cleanup: removed ${RUN_DIR}"
+echo "cleanup: kept evidence at ${EVIDENCE_DIR}"

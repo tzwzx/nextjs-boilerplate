@@ -29,4 +29,6 @@ next-env.d.ts
 !.cursor/hooks.json
 !.cursor/hooks/
 !.cursor/hooks/**
+!.cursor/skills/
+!.cursor/skills/**
 .fallow/

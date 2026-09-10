@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# Read-only health check: is this verification instance worth driving?
+
+set -euo pipefail
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# shellcheck disable=SC1091
+source "${SCRIPT_DIR}/common.sh"
+
+fail() {
+  echo "doctor: FAIL: $*" >&2
+  exit 1
+}
+
+load_instance || exit 1
+
+echo "doctor: instance ${INSTANCE_FILE}"
+echo "doctor: url ${VERIFY_URL}"
+echo "doctor: pid ${VERIFY_PID}"
+echo "doctor: cwd ${VERIFY_CWD}"
+
+if [[ ${VERIFY_CWD} != "${REPO_ROOT}" ]]; then
+  fail "instance cwd ${VERIFY_CWD} is not this checkout ${REPO_ROOT}"
+fi
+
+if [[ ${VERIFY_URL} != "http://${VERIFY_HOST}:${VERIFY_PORT}" ]]; then
+  fail "instance URL ${VERIFY_URL} does not match host/port"
+fi
+
+if ! pid_alive "${VERIFY_PID}"; then
+  fail "recorded pid ${VERIFY_PID} is not running"
+fi
+
+listen_pids=$(port_listen_pids "${VERIFY_PORT}" || true)
+if [[ -z ${listen_pids} ]]; then
+  fail "nothing is listening on ${VERIFY_HOST}:${VERIFY_PORT}"
+fi
+
+owned=0
+for lp in ${listen_pids}; do
+  if [[ ${lp} == "${VERIFY_PID}" ]] || is_ancestor_of "${VERIFY_PID}" "${lp}"; then
+    owned=1
+    echo "doctor: port ${VERIFY_PORT} owned by pid ${lp} (our tree)"
+  else
+    echo "doctor: port ${VERIFY_PORT} also has foreign pid ${lp}" >&2
+  fi
+done
+if [[ ${owned} -ne 1 ]]; then
+  fail "port ${VERIFY_PORT} is not owned by pid ${VERIFY_PID} or its descendants"
+fi
+
+body=$(curl -sS --connect-timeout 2 --max-time 30 "${VERIFY_URL}/") || fail "GET ${VERIFY_URL}/ failed"
+if ! printf '%s' "${body}" | grep -q '<h1>Next.js Boilerplate</h1>'; then
+  fail "GET ${VERIFY_URL}/ did not include <h1>Next.js Boilerplate</h1>"
+fi
+if ! printf '%s' "${body}" | grep -q '<html lang="ja"'; then
+  fail "GET ${VERIFY_URL}/ did not include html lang=ja"
+fi
+if ! printf '%s' "${body}" | grep -q '<title>Home</title>'; then
+  fail "GET ${VERIFY_URL}/ did not include <title>Home</title>"
+fi
+
+echo "doctor: GET / includes home heading, ja lang, and <title>Home</title>"
+echo "doctor: OK"

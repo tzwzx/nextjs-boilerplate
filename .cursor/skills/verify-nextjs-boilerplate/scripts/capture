@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# Capture proof for the current agent-browser page.
+# Usage: capture <stem>
+
+set -euo pipefail
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# shellcheck disable=SC1091
+source "${SCRIPT_DIR}/common.sh"
+
+stem=${1:-}
+if [[ -z ${stem} ]]; then
+  echo "usage: capture <stem>" >&2
+  exit 1
+fi
+
+load_instance || exit 1
+
+export AGENT_BROWSER_SESSION=${AGENT_BROWSER_SESSION:-$(browser_session)}
+
+mkdir -p "${EVIDENCE_DIR}"
+aria_path="${EVIDENCE_DIR}/${stem}.aria.txt"
+shot_path="${EVIDENCE_DIR}/${stem}.png"
+meta_path="${EVIDENCE_DIR}/${stem}.meta.txt"
+
+agent-browser --session "${AGENT_BROWSER_SESSION}" snapshot >"${aria_path}"
+agent-browser --session "${AGENT_BROWSER_SESSION}" screenshot "${shot_path}" >/dev/null
+url=$(agent-browser --session "${AGENT_BROWSER_SESSION}" get url)
+title=$(agent-browser --session "${AGENT_BROWSER_SESSION}" get title)
+errors=$(agent-browser --session "${AGENT_BROWSER_SESSION}" errors || true)
+
+{
+  echo "feature_stem=${stem}"
+  echo "captured_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  echo "verify_url=${VERIFY_URL}"
+  echo "page_url=${url}"
+  echo "page_title=${title}"
+  echo "session=${AGENT_BROWSER_SESSION}"
+  echo "errors<<EOF"
+  printf '%s\n' "${errors}"
+  echo "EOF"
+} >"${meta_path}"
+
+echo "capture: ${aria_path}"
+echo "capture: ${shot_path}"
+echo "capture: ${meta_path}"
+echo "capture: title ${title}"
+echo "capture: url ${url}"
